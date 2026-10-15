@@ -16,8 +16,8 @@ let currentWinnerIndex = -1;
 const colors = ['#FF595E', '#FFCA3A', '#8AC926', '#1982C4', '#6A4C93', '#F4A261', '#2A9D8F', '#2623D4', '#9A26D7', '#FDA225'];
 
 // Ask to edit these if needed.
-const BOTTOM_TO_TOP_RATIO = 2.5;
-const CURVE_STEEPNESS = 6;
+const BOTTOM_TO_TOP_RATIO = 20;
+const CURVE_STEEPNESS = 20;
 
 // Label fitting, font in pixels.
 const FONT_FAMILY = 'sans-serif';
