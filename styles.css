@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #f4f4f9;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.left-panel,
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left-panel {
+    flex: 1;
+}
+
+.right-panel {
+    flex: 3;
+    position: relative;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+textarea {
+    width: 100%;
+    height: 500px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    border: 2px solid #767676;
+    border-radius: 8px;
+}
+
+.wheel-wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* This is the actual wheel's styling. */
+canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: white;
+}
+
+/* Flapper styles */
+.pointer {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 40px solid #333;
+    z-index: 10;
+}
+
+#spinBtn {
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    background: #1e7e34;
+    /* darker green: white text now passes WCAG AA */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#spinBtn:hover {
+    background: #155724;
+}
+
+#spinBtn:disabled {
+    background: #767676;
+    cursor: not-allowed;
+}
+
+/* Keyboard accessibility */
+textarea:focus-visible,
+button:focus-visible {
+    outline: 3px solid #0b57d0;
+    outline-offset: 3px;
+}
+
+/* Modal styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 300px;
+    max-width: 90%;
+}
+
+#winnerText {
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+}
+
+.modal-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+/* These buttons will be visible once a level is rolled. */
+#removeBtn {
+    background: #c82333;
+    color: white;
+}
+
+#closeBtn {
+    background: #5a6268;
+    color: white;
+}
+
+/* Screen reader CSS :3 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Narrow screen accommodation */
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .left-panel,
+    .right-panel {
+        flex: none;
+        width: 100%;
+    }
+
+    textarea {
+        height: 220px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #spinBtn {
+        transition: none;
+    }
+}
