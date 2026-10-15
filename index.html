@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exponential Wheel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="container">
+        <section class="left-panel">
+            <h1>Wheel Options</h1>
+            <label for="optionsInput" id="optionsHelp">
+                Enter up to 150 options (one per line). Lowest line has the highest chance!
+            </label>
+            <textarea id="optionsInput" aria-describedby="optionsHelp"></textarea>
+        </section>
+
+        <section class="right-panel">
+            <div class="wheel-wrapper">
+                <canvas id="wheelCanvas" width="900" height="900" role="img"
+                    aria-label="Prize wheel. The options are listed in the Wheel Options text box."></canvas>
+                <div class="pointer" aria-hidden="true"></div>
+            </div>
+            <button id="spinBtn" type="button">SPIN</button>
+        </section>
+    </main>
+
+    <div id="status" class="sr-only" role="status" aria-live="polite"></div>
+
+    <div id="winnerModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="winnerTitle"
+        aria-describedby="winnerText">
+        <div class="modal-content">
+            <h2 id="winnerTitle">Winner!</h2>
+            <p id="winnerText"></p>
+            <button id="removeBtn" type="button">Remove Option</button>
+            <button id="closeBtn" type="button">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
